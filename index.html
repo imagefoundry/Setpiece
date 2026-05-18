@@ -1463,6 +1463,10 @@
       txt.innerHTML = '<strong>' + n + ' file' + (n===1?'':'s') + ' selected</strong>Ready to send';
     });
   });
+
+  document.querySelectorAll('.tile video').forEach(v => {
+    v.addEventListener('ended', () => { v.currentTime = 0; v.play(); });
+  });
 </script>
 
 </body>
