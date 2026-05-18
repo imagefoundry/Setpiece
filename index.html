@@ -109,7 +109,6 @@
     position:absolute;top:0;left:0;right:0;z-index:50;
     padding:18px var(--pad-x);
     display:flex;align-items:center;justify-content:space-between;
-    mix-blend-mode:difference;
     color:#fff;
   }
   .nav__brand{
@@ -117,8 +116,12 @@
     text-transform:uppercase;
     letter-spacing:-0.02em;
     font-size:24px;
+    white-space:nowrap;
+    display:flex;align-items:center;gap:6px;
   }
-  .nav__brand span{ font-weight:300;opacity:0.7 }
+  .nav__brand span:first-child{ font-weight:800 }
+  .nav__brand span:last-of-type{ font-weight:300;opacity:0.7 }
+  .nav__brand img{ width:150px;filter:brightness(0) invert(1) }
   .nav__cta{
     font-weight:600;
     text-transform:uppercase;
@@ -170,36 +173,22 @@
   /* HERO */
   .hero{
     position:relative;
-    min-height:100vh;
     background:var(--black);
     color:#fff;
-    overflow:hidden;
-    display:flex;
-    flex-direction:column;
   }
-  .hero__bg{
-    position:absolute;inset:0;
-    background-image:url('./00_hero_prosperity_dusk.jpg');
-    background-size:cover;
-    background-position:center;
-    animation:slow-zoom 24s ease-in-out infinite alternate;
-  }
-  .hero__overlay{
-    position:absolute;inset:0;
-    background:linear-gradient(180deg,rgba(10,10,10,0.55) 0%,rgba(10,10,10,0.35) 35%,rgba(10,10,10,0.85) 100%);
-  }
+  .hero__bg{ width:100% }
+  .hero__bg video{ width:100%;height:auto;display:block }
   @keyframes slow-zoom{
     from{ transform:scale(1) translateY(0) }
     to{   transform:scale(1.08) translateY(-1.5%) }
   }
   .hero__top{
-    position:relative;z-index:2;
-    padding:120px var(--pad-x) 0;
+    position:absolute;top:0;left:0;right:0;z-index:2;
+    padding:84px var(--pad-x) 0;
   }
   .hero__top .eyebrow{ color:#fff;opacity:0.7 }
   .hero__main{
-    position:relative;z-index:2;
-    flex:1;
+    position:absolute;bottom:0;left:0;right:0;z-index:2;
     display:flex;
     align-items:flex-end;
     padding:80px var(--pad-x) clamp(60px,8vw,120px);
@@ -296,11 +285,11 @@
     .tile--half{ grid-column:span 6 }
     .tile--third{ grid-column:span 4 }
   }
-  .tile img{
+  .tile img,.tile video{
     width:100%;height:100%;object-fit:cover;
     transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .4s;
   }
-  .tile--portrait img{ object-position:center 70% }
+  .tile--portrait img,.tile--portrait video{ object-position:center 70% }
   .tile:hover img{
     transform:scale(1.05);
     filter:brightness(1.05);
@@ -899,14 +888,17 @@
 
 <!-- NAV -->
 <nav class="nav">
-  <a href="#" class="nav__brand">SETPIECE <span>by Image Foundry</span></a>
+  <a href="#" class="nav__brand"><img src="./logo.svg" alt="Image Foundry"></a>
   <a href="#free-test" class="nav__cta">Send us your photos →</a>
 </nav>
 
 <!-- HERO -->
 <header class="hero">
-  <div class="hero__bg"></div>
-  <div class="hero__overlay"></div>
+  <div class="hero__bg">
+    <video autoplay muted loop playsinline>
+      <source src="./Hero Bg Video.mp4" type="video/mp4">
+    </video>
+  </div>
 
 <div class="hero__top">
     <span class="eyebrow" style="color:#fff;opacity:0.85">SETPIECE – A new product from Image Foundry</span>
@@ -1045,7 +1037,7 @@
 
       <!-- Tile 6 — Dusk close (full width) -->
       <div class="tile tile--wide tile--portrait">
-        <img src="./06_napier_gateway_dusk.jpg" alt="Courtyard between apartment blocks at dusk">
+        <video autoplay muted loop playsinline><source src="./Dynamic Still - STW003 - Napier Gateway.mp4" type="video/mp4"></video>
         <div class="tile__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
         <div class="tile__overlay"></div>
         <div class="tile__meta">
@@ -1113,7 +1105,7 @@
 
     <div class="arc">
       <div class="arc__visual">
-        <img src="./06_napier_gateway_dusk.jpg" alt="Courtyard between two apartment blocks at dusk">
+        <video autoplay muted loop playsinline><source src="./Dynamic Still - STW003 - Napier Gateway.mp4" type="video/mp4"></video>
       </div>
 
       <div>
