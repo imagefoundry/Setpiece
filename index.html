@@ -1,1473 +1,684 @@
 <!doctype html>
 <html lang="en-GB">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Setpiece by Image Foundry – Cinematic film for property. From £1,000.</title>
-<meta name="description" content="Setpiece turns your photography and CGI into narrative video. Built by Image Foundry. Cinematic film for property developers. From £1,000.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --black:#0a0a0a;
-    --ink:#111;
-    --paper:#ffffff;
-    --line:#1a1a1a;
-    --rule:#e5e5e5;
-    --teal:#006680;
-    --teal-dark:#004a5e;
-    --mute:#666;
-    --soft:#f4f4f4;
-    --maxw:min(1800px,calc(100vw - 80px));
-    --pad-x:clamp(20px,4vw,80px);
-    --section-y:clamp(80px,12vw,160px);
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:"Barlow Condensed",sans-serif;
-    font-weight:400;
-    line-height:1.4;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-  }
-  img{display:block;max-width:100%;height:auto}
-  a{color:inherit;text-decoration:none}
-  button{font-family:inherit;border:0;cursor:pointer;background:none}
-
-  /* Typography */
-  .display{
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:-0.035em;
-    line-height:0.92;
-  }
-  .display-xl{ font-size:clamp(44px,10cqi,180px) }
-  .display-lg{ font-size:clamp(34px,7cqi,130px) }
-  .display-md{ font-size:clamp(28px,5.5cqi,100px) }
-  .display-sm{ font-size:clamp(22px,3.8cqi,68px) }
-  .eyebrow{
-    font-weight:500;
-    text-transform:uppercase;
-    letter-spacing:0.18em;
-    font-size:13px;
-    color:var(--mute);
-  }
-  .eyebrow.on-dark{ color:#9aa3a6 }
-  .lede{
-    font-size:clamp(18px,1.6vw,22px);
-    font-weight:400;
-    line-height:1.45;
-    max-width:48em;
-  }
-  .body{
-    font-size:clamp(16px,1.3vw,19px);
-    font-weight:400;
-    line-height:1.55;
-    max-width:38em;
-  }
-  .body.on-dark{ color:#cfd2d3 }
-  .outline{
-    -webkit-text-stroke:1px var(--ink);
-    color:transparent;
-  }
-  .num{
-    font-weight:300;
-    font-size:clamp(60px,8vw,140px);
-    letter-spacing:-0.04em;
-    line-height:0.9;
-    -webkit-text-stroke:1.5px currentColor;
-    color:transparent;
-  }
-  .num.solid{ -webkit-text-stroke:0; color:inherit }
-
-  /* Layout */
-  .wrap{
-    max-width:var(--maxw);
-    margin:0 auto;
-    padding:0 var(--pad-x);
-    container-type:inline-size;
-  }
-  .section{ padding:clamp(48px,6vw,80px) 0 }
-  .section--dark{
-    background:var(--black);
-    color:#fff;
-  }
-  .section--teal{
-    background:var(--teal);
-    color:#fff;
-  }
-  .section--soft{ background:var(--soft) }
-  .rule{ height:1px;background:var(--rule);width:100%;margin:0 }
-  .rule.on-dark{ background:#222 }
-
-  /* Nav */
-  .nav{
-    position:absolute;top:0;left:0;right:0;z-index:50;
-    padding:18px var(--pad-x);
-    display:flex;align-items:center;justify-content:space-between;
-    color:#fff;
-  }
-  .nav__brand{
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:-0.02em;
-    font-size:24px;
-    white-space:nowrap;
-    display:flex;align-items:center;gap:6px;
-  }
-  .nav__brand span:first-child{ font-weight:800 }
-  .nav__brand span:last-of-type{ font-weight:300;opacity:0.7 }
-  .nav__brand img{ width:150px;filter:brightness(0) invert(1) }
-  .nav__cta{
-    font-weight:600;
-    text-transform:uppercase;
-    letter-spacing:0.08em;
-    font-size:12px;
-    padding:10px 18px;
-    border:1px solid currentColor;
-  }
-
-  /* Buttons */
-  .btn{
-    display:inline-flex;align-items:center;gap:12px;
-    font-weight:700;
-    text-transform:uppercase;
-    letter-spacing:0.05em;
-    font-size:14px;
-    padding:18px 28px;
-    border:1px solid currentColor;
-    transition:background .2s,color .2s;
-    line-height:1;
-  }
-  .btn--primary{
-    background:var(--teal);
-    color:#fff;
-    border-color:var(--teal);
-  }
-  .btn--primary:hover{ background:var(--teal-dark);border-color:var(--teal-dark) }
-  .btn--ghost-dark{
-    background:transparent;
-    color:#fff;
-    border-color:#fff;
-  }
-  .btn--ghost-dark:hover{ background:#fff;color:var(--black) }
-  .btn--ghost-light{
-    background:transparent;
-    color:var(--ink);
-    border-color:var(--ink);
-  }
-  .btn--ghost-light:hover{ background:var(--ink);color:#fff }
-  .btn--ghost-teal{
-    background:transparent;
-    color:#fff;
-    border-color:#fff;
-  }
-  .btn--ghost-teal:hover{ background:#fff;color:var(--teal) }
-  .btn__arrow{ display:inline-block;transition:transform .2s }
-  .btn:hover .btn__arrow{ transform:translateX(4px) }
-
-  /* HERO */
-  .hero{
-    position:relative;
-    background:var(--black);
-    color:#fff;
-  }
-  .hero__bg{ width:100% }
-  .hero__bg video{ width:100%;height:auto;display:block }
-  @keyframes slow-zoom{
-    from{ transform:scale(1) translateY(0) }
-    to{   transform:scale(1.08) translateY(-1.5%) }
-  }
-  .hero__top{
-    position:absolute;top:0;left:0;right:0;z-index:2;
-    padding:84px var(--pad-x) 0;
-  }
-  .hero__top .eyebrow{ color:#fff;opacity:0.7 }
-  .hero__main{
-    position:absolute;bottom:0;left:0;right:0;z-index:2;
-    display:flex;
-    align-items:flex-end;
-    padding:80px var(--pad-x) clamp(60px,8vw,120px);
-  }
-  .hero__inner{
-    width:100%;max-width:var(--maxw);margin:0 auto;
-    display:grid;grid-template-columns:1fr;gap:40px;
-    container-type:inline-size;
-  }
-  .hero__title{ color:#fff }
-  .hero__title .line{ display:block }
-  .cta-band__head .line{ display:block;white-space:nowrap }
-  .hero__title .price{ color:#fff;font-weight:400 }
-  .hero__sub{
-    color:#dadde0;
-    max-width:34em;
-    font-size:clamp(18px,1.6vw,22px);
-    line-height:1.45;
-    margin-top:12px;
-  }
-  .hero__sub strong{ color:#fff;font-weight:600 }
-  .hero__ctas{ display:flex;flex-wrap:wrap;gap:14px;margin-top:8px }
-.hero__scroll{
-    position:absolute;
-    bottom:24px;left:50%;transform:translateX(-50%);
-    z-index:2;
-    color:#fff;opacity:0.65;
-    font-size:11px;
-    text-transform:uppercase;
-    letter-spacing:0.2em;
-    writing-mode:vertical-rl;
-  }
-
-  /* Section header */
-  .section-head{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:20px;
-    margin-bottom:clamp(40px,5vw,80px);
-  }
-  @media (min-width:880px){
-    .section-head{
-      grid-template-columns:auto 1fr;
-      gap:48px;
-      align-items:end;
-    }
-    .section-head__meta{ padding-bottom:8px }
-  }
-  .section-head__num{
-    font-weight:300;
-    font-size:14px;
-    letter-spacing:0.2em;
-    text-transform:uppercase;
-    color:var(--mute);
-  }
-  .section-head .eyebrow{ margin-top:4px;display:block }
-  .section-head__title{ max-width:14em }
-
-  /* THE SHIFT */
-  .shift__grid{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:40px;
-  }
-  @media (min-width:880px){
-    .shift__grid{
-      grid-template-columns:1.1fr 1fr;
-      gap:80px;
-    }
-  }
-  .shift__close{
-    margin-top:40px;
-    padding:40px 0 0;
-    border-top:1px solid var(--rule);
-  }
-
-  /* SHOWREEL GRID */
-  .reel{
-    display:grid;
-    grid-template-columns:repeat(12,1fr);
-    gap:3px;
-  }
-  .tile{
-    position:relative;
-    overflow:hidden;
-    background:var(--black);
-    aspect-ratio:4/3;
-  }
-  .tile--wide{ grid-column:span 12 }
-  .tile--half{ grid-column:span 12 }
-  .tile--third{ grid-column:span 12 }
-  @media (min-width:720px){
-    .tile--wide{ grid-column:span 12;aspect-ratio:21/9 }
-    .tile--half{ grid-column:span 6 }
-    .tile--third{ grid-column:span 4 }
-  }
-  .tile img,.tile video{
-    width:100%;height:100%;object-fit:cover;
-    transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .4s;
-  }
-  .tile--portrait img,.tile--portrait video{ object-position:center 70% }
-  .tile:hover img{
-    transform:scale(1.05);
-    filter:brightness(1.05);
-  }
-  .tile__overlay{
-    position:absolute;inset:0;
-    background:linear-gradient(180deg,rgba(0,0,0,0) 50%,rgba(0,0,0,0.75) 100%);
-    pointer-events:none;
-  }
-  .tile__meta{
-    position:absolute;
-    left:24px;bottom:24px;right:24px;
-    color:#fff;
-    display:flex;justify-content:space-between;align-items:flex-end;
-    gap:20px;
-    z-index:2;
-  }
-  .tile__scene{
-    font-weight:700;
-    text-transform:uppercase;
-    letter-spacing:-0.01em;
-    font-size:clamp(20px,1.8vw,28px);
-    line-height:1;
-  }
-  .tile__type{
-    font-size:11px;
-    text-transform:uppercase;
-    letter-spacing:0.18em;
-    opacity:0.75;
-    margin-top:6px;
-    line-height:1.2;
-  }
-  .tile__move{
-    font-size:11px;
-    text-transform:uppercase;
-    letter-spacing:0.18em;
-    color:#fff;
-    border:1px solid rgba(255,255,255,0.6);
-    padding:8px 12px;
-    white-space:nowrap;
-  }
-.tile__play{
-    position:absolute;
-    top:24px;right:24px;
-    z-index:2;
-    color:#fff;
-    width:44px;height:44px;
-    border:1px solid rgba(255,255,255,0.7);
-    border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-    transition:background .2s,border-color .2s;
-  }
-  .tile:hover .tile__play{ background:var(--teal);border-color:var(--teal) }
-  .tile__play svg{ width:14px;height:14px;fill:#fff;margin-left:2px }
-  .reel__note{
-    margin-top:32px;
-    font-size:14px;
-    color:var(--mute);
-    max-width:48em;
-  }
-
-  /* HOW IT WORKS */
-  .steps{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:0;
-  }
-  @media (min-width:720px){
-    .steps{ grid-template-columns:repeat(2,1fr) }
-  }
-  @media (min-width:1100px){
-    .steps{ grid-template-columns:repeat(4,1fr) }
-  }
-  .step{
-    padding:48px 32px 48px 24px;
-    border-top:1px solid var(--rule);
-  }
-  @media (min-width:720px){
-    .step{ padding:48px 32px 48px 24px;border-right:1px solid var(--rule) }
-    .step:nth-child(2n){ border-right:0;padding-right:0 }
-  }
-  @media (min-width:1100px){
-    .step{ border-right:1px solid var(--rule);padding-right:32px }
-    .step:nth-child(2n){ border-right:1px solid var(--rule);padding-right:32px }
-    .step:nth-child(4n){ border-right:0;padding-right:0 }
-    .step{ padding-right:48px }
-  }
-  .step__num{
-    font-weight:300;
-    font-size:14px;
-    letter-spacing:0.2em;
-    color:var(--teal);
-    margin-bottom:24px;
-  }
-  .step__title{
-    font-weight:800;
-    font-size:clamp(22px,2vw,28px);
-    text-transform:uppercase;
-    letter-spacing:-0.02em;
-    line-height:1.05;
-    margin-bottom:16px;
-  }
-  .step__body{
-    font-size:15px;
-    color:var(--mute);
-    line-height:1.55;
-  }
-
-  /* NARRATIVE ARC */
-  .arc{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:60px;
-    align-items:start;
-  }
-  @media (min-width:980px){
-    .arc{ grid-template-columns:1fr 1fr;gap:80px }
-  }
-  .arc__visual{
-    position:relative;
-    aspect-ratio:4/5;
-    overflow:hidden;
-    background:var(--black);
-  }
-  .arc__visual img{ width:100%;height:100%;object-fit:cover;object-position:center 75% }
-  .arc__visual::after{
-    content:"";
-    position:absolute;inset:0;
-    background:linear-gradient(180deg,rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.45) 100%);
-  }
-.arc__acts{
-    display:flex;flex-direction:column;
-    gap:0;
-  }
-  .act{
-    padding:28px 0;
-    border-top:1px solid var(--rule);
-    display:grid;
-    grid-template-columns:auto 1fr;
-    gap:24px;
-    align-items:start;
-  }
-  .act:last-child{ border-bottom:1px solid var(--rule) }
-  .act__num{
-    font-weight:300;
-    color:var(--teal);
-    font-size:13px;
-    letter-spacing:0.2em;
-    padding-top:8px;
-    min-width:80px;
-  }
-  .act__title{
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:-0.02em;
-    font-size:clamp(24px,2.5vw,36px);
-    line-height:1;
-    margin-bottom:10px;
-  }
-  .act__body{
-    font-size:15px;
-    color:var(--mute);
-    line-height:1.55;
-    max-width:34em;
-  }
-  .arc__close{
-    margin-top:64px;
-    padding-top:40px;
-    border-top:1px solid var(--rule);
-  }
-
-  /* WHERE IT LIVES */
-  .channels{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:1px;
-    background:var(--rule);
-    border:1px solid var(--rule);
-  }
-  @media (min-width:720px){
-    .channels{ grid-template-columns:repeat(2,1fr) }
-  }
-  @media (min-width:1100px){
-    .channels{ grid-template-columns:repeat(4,1fr) }
-  }
-  .channel{
-    background:var(--paper);
-    padding:48px 36px;
-    position:relative;
-    min-height:280px;
-  }
-  .channel__ratio{
-    font-family:"Barlow Condensed",sans-serif;
-    font-weight:700;
-    font-size:11px;
-    letter-spacing:0.2em;
-    color:var(--teal);
-    text-transform:uppercase;
-    margin-bottom:24px;
-  }
-  .channel__title{
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:-0.02em;
-    font-size:clamp(22px,2vw,28px);
-    line-height:1;
-    margin-bottom:14px;
-  }
-  .channel__body{
-    font-size:15px;
-    color:var(--mute);
-    line-height:1.55;
-  }
-  .channel__shape{
-    position:absolute;
-    bottom:36px;right:36px;
-    border:1.5px solid var(--rule);
-  }
-  .channel__shape.s-vertical{ width:18px;height:32px }
-  .channel__shape.s-square{ width:26px;height:26px }
-  .channel__shape.s-landscape{ width:32px;height:18px }
-  .channel__shape.s-banner{ width:36px;height:14px }
-  .channels__close{
-    margin-top:56px;
-    text-align:center;
-  }
-
-  /* PRICING */
-  .pricing{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:24px;
-  }
-  @media (min-width:880px){
-    .pricing{ grid-template-columns:1fr 1fr;gap:32px }
-  }
-  .price-card{
-    position:relative;
-    padding:48px 40px 40px;
-    border:1px solid var(--ink);
-    background:var(--paper);
-  }
-  .price-card--feature{
-    background:var(--ink);
-    color:#fff;
-    border-color:var(--ink);
-  }
-  .price-card__label{
-    font-weight:700;
-    text-transform:uppercase;
-    letter-spacing:0.2em;
-    font-size:12px;
-    margin-bottom:24px;
-    color:var(--teal);
-  }
-  .price-card--feature .price-card__label{ color:#7fc7d8 }
-  .price-card__price{
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:-0.03em;
-    font-size:clamp(48px,5.5vw,84px);
-    line-height:0.95;
-    margin-bottom:24px;
-  }
-  .price-card__price small{
-    display:block;
-    font-size:14px;
-    font-weight:400;
-    letter-spacing:0.15em;
-    text-transform:uppercase;
-    color:var(--mute);
-    margin-bottom:8px;
-  }
-  .price-card--feature .price-card__price small{ color:#aaa }
-  .price-card__body{
-    font-size:16px;
-    line-height:1.5;
-    color:var(--mute);
-    margin-bottom:32px;
-  }
-  .price-card--feature .price-card__body{ color:#cfd2d3 }
-.pricing__note{
-    margin-top:32px;
-    font-size:14px;
-    color:var(--mute);
-    max-width:42em;
-  }
-
-  /* WHY IF */
-  .why{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:40px;
-    align-items:center;
-  }
-  @media (min-width:980px){
-    .why{ grid-template-columns:1.2fr 1fr;gap:80px }
-  }
-  .why__stats-row{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:0;
-  }
-  .why__clients{
-    margin-top:40px;
-    padding:32px 0 0;
-    border-top:1px solid var(--rule);
-  }
-  .why__clients-label{
-    font-weight:500;
-    text-transform:uppercase;
-    letter-spacing:0.2em;
-    font-size:11px;
-    color:var(--mute);
-    margin-bottom:20px;
-  }
-  .why__clients-row{
-    display:flex;flex-wrap:wrap;
-    justify-content:space-between;
-    align-items:center;
-  }
-  .client-name{
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:-0.02em;
-    font-size:clamp(22px,2.6vw,34px);
-    line-height:1;
-    color:var(--ink);
-  }
-  .client-logo{
-    height:40px;
-    width:132px;
-    object-fit:contain;
-    filter:grayscale(1) brightness(0);
-  }
-  .why__stat{
-    border-left:2px solid var(--teal);
-    padding:12px 16px;
-  }
-  .why__stat-num{
-    font-weight:800;
-    font-size:clamp(32px,3.5vw,52px);
-    letter-spacing:-0.03em;
-    line-height:1;
-    color:var(--ink);
-  }
-  .why__stat-label{
-    font-size:12px;
-    text-transform:uppercase;
-    letter-spacing:0.15em;
-    color:var(--mute);
-    margin-top:6px;
-    line-height:1.3;
-  }
-  .why__locations{
-    margin-top:24px;
-    font-size:15px;
-    color:var(--mute);
-  }
-
-  /* FAQ */
-  .faq{
-    display:grid;
-    grid-template-columns:1fr;
-    column-gap:clamp(40px,5vw,80px);
-  }
-  @media (min-width:800px){
-    .faq{ grid-template-columns:1fr 1fr }
-  }
-  .faq__item{
-    border-top:1px solid var(--rule);
-    border-bottom:1px solid var(--rule);
-    margin-bottom:-1px;
-  }
-  .faq__q{
-    width:100%;
-    text-align:left;
-    padding:32px 0;
-    display:flex;justify-content:space-between;align-items:center;
-    gap:24px;
-    font-family:inherit;
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:-0.02em;
-    font-size:clamp(20px,2vw,28px);
-    line-height:1.1;
-    color:var(--ink);
-    background:none;
-  }
-  .faq__plus{
-    flex-shrink:0;
-    width:24px;height:24px;
-    position:relative;
-  }
-  .faq__plus::before,.faq__plus::after{
-    content:"";
-    position:absolute;
-    background:var(--ink);
-    transition:transform .3s;
-  }
-  .faq__plus::before{ left:0;right:0;top:50%;height:1.5px;transform:translateY(-50%) }
-  .faq__plus::after{ top:0;bottom:0;left:50%;width:1.5px;transform:translateX(-50%) }
-  .faq__item.open .faq__plus::after{ transform:translateX(-50%) rotate(90deg) }
-  .faq__a{
-    max-height:0;overflow:hidden;
-    transition:max-height .4s ease,padding .3s;
-  }
-  .faq__a-inner{
-    padding:0 64px 32px 0;
-    font-size:16px;
-    color:var(--mute);
-    line-height:1.6;
-    max-width:42em;
-  }
-  .faq__item.open .faq__a{ max-height:600px }
-
-  /* FREE TEST + CTA BAND (TEAL) */
-  .cta-band{
-    background:var(--teal);
-    color:#fff;
-    padding:clamp(48px,6vw,80px) 0;
-    position:relative;
-    overflow:hidden;
-  }
-  .cta-band::before{
-    content:"";
-    position:absolute;inset:0;
-    background:
-      radial-gradient(circle at 80% 20%,rgba(255,255,255,0.08) 0,transparent 50%),
-      radial-gradient(circle at 20% 80%,rgba(0,0,0,0.15) 0,transparent 50%);
-    pointer-events:none;
-  }
-  .cta-band__inner{ position:relative;z-index:2 }
-  .cta-band .eyebrow{ color:#aed5e0 }
-  .cta-band__head{
-    margin-bottom:32px;
-    max-width:24em;
-  }
-  .cta-form{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:48px;
-    align-items:start;
-  }
-  @media (min-width:980px){
-    .cta-form{ grid-template-columns:1fr 1.2fr;gap:80px }
-  }
-  .cta-form__intro h3{
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:-0.02em;
-    font-size:clamp(26px,2.4vw,36px);
-    line-height:1;
-    margin-bottom:24px;
-  }
-  .cta-form__steps{
-    list-style:none;counter-reset:s;
-    margin-top:24px;
-  }
-  .cta-form__steps li{
-    counter-increment:s;
-    padding:18px 0 18px 56px;
-    position:relative;
-    font-size:16px;
-    color:#dfeef3;
-    line-height:1.5;
-    border-top:1px solid rgba(255,255,255,0.18);
-  }
-  .cta-form__steps li:last-child{ border-bottom:1px solid rgba(255,255,255,0.18) }
-  .cta-form__steps li::before{
-    content:"0" counter(s);
-    position:absolute;
-    left:0;top:18px;
-    font-weight:700;
-    letter-spacing:0.15em;
-    color:#fff;
-    font-size:14px;
-  }
-  .cta-form__small{
-    margin-top:24px;
-    font-size:13px;
-    color:#aed5e0;
-    letter-spacing:0.05em;
-  }
-  .form{
-    background:#fff;
-    color:var(--ink);
-    padding:40px;
-    position:relative;
-  }
-.field{
-    margin-bottom:24px;
-    display:block;
-  }
-  .field__label{
-    font-weight:600;
-    font-size:11px;
-    letter-spacing:0.18em;
-    text-transform:uppercase;
-    color:var(--mute);
-    margin-bottom:8px;
-    display:block;
-  }
-  .field__input,.field__select,.field__textarea{
-    width:100%;
-    font-family:inherit;
-    font-size:18px;
-    font-weight:400;
-    padding:14px 0;
-    border:0;
-    border-bottom:1.5px solid var(--ink);
-    background:transparent;
-    color:var(--ink);
-    transition:border-color .2s;
-  }
-  .field__input:focus,.field__select:focus,.field__textarea:focus{
-    outline:none;
-    border-bottom-color:var(--teal);
-  }
-  .field__row{ display:grid;grid-template-columns:1fr 1fr;gap:24px }
-  @media (max-width:560px){ .field__row{ grid-template-columns:1fr } }
-  .field__upload{
-    border:1.5px dashed var(--rule);
-    padding:24px;
-    text-align:center;
-    cursor:pointer;
-    transition:border-color .2s,background .2s;
-  }
-  .field__upload:hover{ border-color:var(--teal);background:var(--soft) }
-  .field__upload-text{
-    font-size:14px;
-    color:var(--mute);
-    line-height:1.5;
-  }
-  .field__upload-text strong{ color:var(--ink);display:block;margin-bottom:4px;font-size:15px }
-  .form__submit{ margin-top:8px;width:100% }
-
-  /* FINAL FOOTER */
-  .foot{
-    background:var(--black);
-    color:#fff;
-    padding:80px 0 40px;
-  }
-  .foot__top{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:60px;
-    padding-bottom:60px;
-    border-bottom:1px solid #222;
-    margin-bottom:40px;
-  }
-  @media (min-width:880px){
-    .foot__top{ grid-template-columns:1fr 1fr;gap:80px;align-items:end }
-  }
-  .foot__brand{
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:-0.02em;
-    font-size:32px;
-    line-height:1;
-  }
-  .foot__brand span{ font-weight:300;opacity:0.6 }
-  .foot__tag{
-    margin-top:20px;
-    font-size:18px;
-    color:#cfd2d3;
-    max-width:24em;
-    line-height:1.4;
-  }
-  .foot__cta-row{ display:flex;flex-wrap:wrap;gap:14px }
-  .foot__bottom{
-    display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;
-    gap:24px;
-    font-size:13px;
-    color:#888;
-  }
-  .foot__bottom a{ color:#cfd2d3 }
-  .foot__bottom a:hover{ color:#fff }
-  .foot__links{ display:flex;flex-wrap:wrap;gap:24px }
-
-  /* Utility */
-  .stack > * + *{ margin-top:24px }
-  .stack-lg > * + *{ margin-top:32px }
-  .mt-md{ margin-top:24px }
-  .mt-lg{ margin-top:40px }
-  .mt-xl{ margin-top:64px }
-  .center{ text-align:center }
-  .ctas-row{ display:flex;flex-wrap:wrap;gap:14px;align-items:center }
-
-  /* Smoke animations */
-  .reveal{ opacity:0;transform:translateY(20px);transition:opacity .8s,transform .8s }
-  .reveal.in{ opacity:1;transform:none }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Setpiece by Image Foundry – Cinematic film for property. From £1,000.</title>
+  <meta name="description"
+    content="Setpiece turns your photography and CGI into narrative video. Built by Image Foundry. Cinematic film for property developers. From £1,000.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<!-- NAV -->
-<nav class="nav">
-  <a href="#" class="nav__brand"><img src="./logo.svg" alt="Image Foundry"></a>
-  <a href="#free-test" class="nav__cta">Send us your photos →</a>
-</nav>
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="https://www.imagefoundry.co.uk" class="nav__brand" target="_blank" rel="noopener"><img src="./logos/logo.svg"
+        alt="Image Foundry"></a>
+    <a href="#free-test" class="nav__cta">Send us your images →</a>
+  </nav>
 
-<!-- HERO -->
-<header class="hero">
-  <div class="hero__bg">
-    <video autoplay muted loop playsinline>
-      <source src="./Hero Bg Video.mp4" type="video/mp4">
-    </video>
-  </div>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero__bg">
+      <video autoplay muted loop playsinline>
+        <source src="./videos/Hero Bg Video.mp4" type="video/mp4">
+      </video>
+    </div>
 
-<div class="hero__top">
-    <span class="eyebrow" style="color:#fff;opacity:0.85">SETPIECE – A new product from Image Foundry</span>
-  </div>
+    <div class="hero__top">
+      <span class="eyebrow" style="color:#fff;opacity:0.85">SETPIECE – A new product from Image Foundry</span>
+    </div>
 
-  <div class="hero__main">
-    <div class="hero__inner">
-      <h1 class="hero__title display display-xl">
-        <span class="line">Cinematic film</span>
-        <span class="line">for property.</span>
-        <span class="line price">From £1,000.</span>
-      </h1>
-      <p class="hero__sub">
-        <strong>Setpiece</strong> turns your photography and CGI into narrative video. Built for property developers who want video that performs, without the cost or timeline of traditional production.
+    <div class="hero__main">
+      <div class="hero__inner">
+        <h1 class="hero__title display display-xl">
+          <span class="line">Cinematic film</span>
+          <span class="line">for property.</span>
+        </h1>
+        <p class="hero__sub">
+          <strong>Setpiece</strong> turns your existing CGI, photography and campaign assets into cinematic<br>property
+          films without the cost, delay or complexity of a traditional shoot.
+        </p>
+        <span class="hero__price display display-xl price">From £1,000. Delivered in days.</span>
+        <div class="hero__ctas">
+          <a href="#free-test" class="btn btn--primary">Send us your images <span class="btn__arrow">→</span></a>
+          <a href="#work" class="btn btn--ghost-dark">See the work <span class="btn__arrow">↓</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__scroll">Scroll</div>
+  </header>
+
+  <!-- SECTION 2 — THE SHIFT -->
+  <section class="section section--soft" id="shift">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-head__meta">
+          <div class="section-head__num">01</div>
+          <span class="eyebrow">The shift</span>
+        </div>
+        <h2 class="section-head__title display display-md">Video has become the<br>centrepiece asset.</h2>
+        <p class="shift__sub">People consume video differently. They stop for it. They watch it for longer. They understand more in less time.</p>
+      </div>
+
+      <div class="shift__body">
+
+        <div class="shift__cols">
+          <p class="body">In a showroom, video often becomes the asset people gather around. Online, it is built for the channels buyers already use — Instagram, YouTube, Facebook, LinkedIn, portals, paid campaigns and email.</p>
+          <p class="body">A good property film says a lot before anyone reads a line of copy. The camera moves, sequencing, music, editing and finish all suggest care, confidence and production value. That value reflects back on the development itself.</p>
+          <p class="body">The problem is that traditional video production is expensive, slow and difficult to organise. Crews, weather, access, permissions, editing, locations and production management all add cost and complexity.</p>
+          <p class="shift__callout">Setpiece removes that barrier. We take the CGI, photography and brand assets you already have and turn them into polished, cinematic video content without a shoot, without a large production budget, and without weeks of planning.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- SECTION 3 — THE WORK / SHOWREEL -->
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-head__meta">
+          <div class="section-head__num">02</div>
+          <span class="eyebrow">The work</span>
+        </div>
+        <h2 class="section-head__title display display-md">Six setpieces.<br><span class="text-hollow">Six ways to make
+            a scheme feel bigger, richer and more alive.</span></h2>
+      </div>
+
+      <div class="work-intro">
+        <p class="body">Each Setpiece is built from existing visual assets, then shaped through camera movement, sequencing, editing, music, atmosphere and pace.</p>
+        <p class="body">That is where the perceived value comes from. Not just movement, production value.</p>
+      </div>
+
+      <div class="reel">
+
+        <!-- Row 1: Two 16:9 landscape videos -->
+        <div class="tile-wrap tile-wrap--half">
+          <div class="tile tile--half" style="aspect-ratio:16/9">
+            <video autoplay muted loop playsinline><source src="./videos/10.mp4" type="video/mp4"></video>
+            <div class="tile__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></div>
+            <div class="tile__overlay"></div>
+            <div class="tile__meta">
+              <div><div class="tile__scene">Urban tower / Dusk</div></div>
+              <div class="tile__move">Dolly Pan</div>
+            </div>
+          </div>
+          <p class="tile__caption"><strong>Creates a premium first impression.</strong> A cinematic exterior sequence that gives the development scale, confidence and launch-campaign polish.</p>
+        </div>
+
+        <div class="tile-wrap tile-wrap--half">
+          <div class="tile tile--half" style="aspect-ratio:16/9">
+            <video autoplay muted loop playsinline><source src="./videos/17.mp4" type="video/mp4"></video>
+            <div class="tile__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></div>
+            <div class="tile__overlay"></div>
+            <div class="tile__meta">
+              <div><div class="tile__scene">Aerial masterplan</div></div>
+              <div class="tile__move">Aerial Push</div>
+            </div>
+          </div>
+          <p class="tile__caption"><strong>Makes the location easier to understand.</strong> A place-making film that shows context, connectivity and scale without needing drone footage or a location shoot.</p>
+        </div>
+
+        <!-- Row 2: Two 1:1 square videos -->
+        <div class="tile-wrap tile-wrap--half">
+          <div class="tile tile--half" style="aspect-ratio:1/1">
+            <video autoplay muted loop playsinline><source src="./videos/0519.mp4" type="video/mp4"></video>
+            <div class="tile__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></div>
+            <div class="tile__overlay"></div>
+            <div class="tile__meta">
+              <div><div class="tile__scene">Living room</div></div>
+              <div class="tile__move">Slow Orbit</div>
+            </div>
+          </div>
+          <p class="tile__caption"><strong>Makes the interior feel lived-in and desirable.</strong> A slower, atmospheric sequence that turns CGI into a lifestyle-led sales asset.</p>
+        </div>
+
+        <div class="tile-wrap tile-wrap--half">
+          <div class="tile tile--half" style="aspect-ratio:1/1">
+            <video autoplay muted loop playsinline><source src="./videos/11.mp4" type="video/mp4"></video>
+            <div class="tile__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></div>
+            <div class="tile__overlay"></div>
+            <div class="tile__meta">
+              <div><div class="tile__scene">Amenity gym</div></div>
+              <div class="tile__move">Push-in</div>
+            </div>
+          </div>
+          <p class="tile__caption"><strong>Turns amenities into campaign content.</strong> A sharper edit for social, leasing campaigns and sales suite screens.</p>
+        </div>
+
+        <!-- Row 3: 9:16 portrait + 4:3 landscape -->
+        <div class="tile-wrap tile-wrap--third">
+          <div class="tile tile--third" style="aspect-ratio:2/3">
+            <video autoplay muted loop playsinline style="object-position:center"><source src="./videos/0518.mp4" type="video/mp4"></video>
+            <div class="tile__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></div>
+            <div class="tile__overlay"></div>
+            <div class="tile__meta">
+              <div><div class="tile__scene">Street life</div></div>
+              <div class="tile__move">Tracking Pan</div>
+            </div>
+          </div>
+          <p class="tile__caption"><strong>Adds energy around the development.</strong> A contextual sequence that helps the scheme feel active, connected and part of a real neighbourhood.</p>
+        </div>
+
+        <div class="tile-wrap tile-wrap--two-thirds">
+          <div class="tile tile--two-thirds" style="aspect-ratio:4/3">
+            <video autoplay muted loop playsinline><source src="./videos/9.mp4" type="video/mp4"></video>
+            <div class="tile__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></div>
+            <div class="tile__overlay"></div>
+            <div class="tile__meta">
+              <div><div class="tile__scene">Courtyard / Dusk</div></div>
+              <div class="tile__move">Cinematic Dolly</div>
+            </div>
+          </div>
+          <p class="tile__caption"><strong>Creates a high-end lifestyle moment.</strong> A cinematic evening scene for launch films, investor decks and premium campaign use.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- SECTION 4 — HOW IT WORKS -->
+  <section class="section section--soft" id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-head__meta">
+          <div class="section-head__num">03</div>
+          <span class="eyebrow">How it works</span>
+        </div>
+        <h2 class="section-head__title display display-md">You do not need to produce a film.</h2>
+      </div>
+
+      <div class="howit-intro">
+        <div class="howit-intro__left">
+          <p class="display display-sm text-hollow">You just need the right assets.</p>
+          <p class="body">Setpiece is designed for property teams that want high-quality video without managing a traditional production process.</p>
+          <p class="body">We take care of the creative, the structure, the motion, the edit and the finish.</p>
+        </div>
+        <ul class="howit-list">
+          <li>No shoot planning.</li>
+          <li>No crew management.</li>
+          <li>No location access.</li>
+          <li>No drone permissions.</li>
+          <li>No complex creative process to run internally.</li>
+        </ul>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step__num">01 / Brief</div>
+          <h3 class="step__title">You send us what you have</h3>
+          <p class="step__body">CGI, photography, brochures, brand guidelines, campaign lines or sales messages. If
+            Image Foundry produced the CGI, we may already have much of what we need.</p>
+        </div>
+        <div class="step">
+          <div class="step__num">02 / Direction</div>
+          <h3 class="step__title">We shape the story</h3>
+          <p class="step__body">A focused 20-minute call to agree the audience, use case, key message, music direction
+            and required formats. You do not need to arrive with a video treatment. That is our job.</p>
+        </div>
+        <div class="step">
+          <div class="step__num">03 / Production</div>
+          <h3 class="step__title">We build the setpiece</h3>
+          <p class="step__body">We create the film using cinematic camera moves, sequencing, edit, music, typography,
+            atmosphere and brand styling. Typical production takes two to three days once the brief is agreed.</p>
+        </div>
+        <div class="step">
+          <div class="step__num">04 / Delivery</div>
+          <h3 class="step__title">You get campaign-ready video</h3>
+          <p class="step__body">You receive a hero film plus agreed cutdowns and formats for social, showroom, web,
+            email or paid campaigns.One round of fine-tuning is included.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SECTION 5 — NARRATIVE ARC -->
+  <section class="section" id="arc">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-head__meta">
+          <div class="section-head__num">04</div>
+          <span class="eyebrow">The story shape</span>
+        </div>
+        <h2 class="section-head__title display display-md">Production value is not just resolution.</h2>
+      </div>
+
+      <div class="arc-intro">
+        <h3 class="display display-md text-hollow">A film feels expensive because of how it is directed.</h3>
+        <ul class="arc-qualities">
+          <li>The camera movement.</li>
+          <li>The sequence of shots.</li>
+          <li>The rhythm of the edit.</li>
+          <li>The music.</li>
+          <li>The restraint.</li>
+          <li>The way the story builds.</li>
+        </ul>
+      </div>
+
+      <div class="arc">
+        <div class="arc__visual">
+          <video autoplay muted loop playsinline>
+            <source src="./videos/Dynamic Still - STW003 - Napier Gateway.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div>
+          <p class="body" style="margin-bottom:40px">
+            Setpiece uses those film-making principles to make existing assets feel more premium, more intentional and more complete. Every Setpiece follows a simple property story arc.
+          </p>
+
+          <div class="arc__acts">
+            <div class="act">
+              <div class="act__num">Act 01</div>
+              <div>
+                <h3 class="act__title">The Place</h3>
+                <p class="act__body">The location, neighbourhood and wider setting. The viewer understands where the development sits and why it matters.</p>
+              </div>
+            </div>
+            <div class="act">
+              <div class="act__num">Act 02</div>
+              <div>
+                <h3 class="act__title">The Arrival</h3>
+                <p class="act__body">The development reveals itself. Exterior angles, approach shots and hero moments create presence and scale.</p>
+              </div>
+            </div>
+            <div class="act">
+              <div class="act__num">Act 03</div>
+              <div>
+                <h3 class="act__title">The Life</h3>
+                <p class="act__body">Interiors, amenities, light, texture and atmosphere. This is where the scheme begins to feel desirable and lived-in.</p>
+              </div>
+            </div>
+            <div class="act">
+              <div class="act__num">Act 04</div>
+              <div>
+                <h3 class="act__title">The Proposition</h3>
+                <p class="act__body">The final message: the address, offer, availability, launch line or reason to enquire.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="arc__close">
+        <h3 class="display display-sm">Tools can create motion.<br><span class="outline">Setpiece creates a property film.</span></h3>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SECTION 6 — WHERE IT LIVES -->
+  <section class="section section--soft" id="channels">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-head__meta">
+          <div class="section-head__num">05</div>
+          <span class="eyebrow">Where it lives</span>
+        </div>
+        <h2 class="section-head__title display display-md">Built for the places people already watch.</h2>
+      </div>
+
+      <p class="display display-sm text-hollow" style="margin-bottom:2rem">Video fits the way property audiences now consume content.</p>
+
+      <div class="channels-intro">
+        <ul class="channels-list">
+          <li>It works in the showroom.</li>
+          <li>It works on the website.</li>
+          <li>It works in paid campaigns.</li>
+          <li>It works in social feeds.</li>
+          <li>It works in investor presentations.</li>
+          <li>It works when people will not stop long enough to read.</li>
+        </ul>
+        <p class="channels-closer">One Setpiece can be adapted across the channels that matter.</p>
+      </div>
+
+      <div class="channels">
+        <div class="channel">
+          <div class="channel__ratio">9:16 / Vertical</div>
+          <h3 class="channel__title">Social Reels and feeds</h3>
+          <p class="channel__body">Vertical edits for Instagram, TikTok, Facebook, YouTube Shorts and LinkedIn. Designed to stop the scroll and work with or without sound.</p>
+          <div class="channel__shape s-vertical"></div>
+        </div>
+        <div class="channel">
+          <div class="channel__ratio">16:9 / Landscape</div>
+          <h3 class="channel__title">Showroom and web</h3>
+          <p class="channel__body">A cinematic hero version for sales suites, websites, launch events and presentation screens.</p>
+          <div class="channel__shape s-landscape"></div>
+        </div>
+        <div class="channel">
+          <div class="channel__ratio">1:1 / Square</div>
+          <h3 class="channel__title">Paid and portal placements</h3>
+          <p class="channel__body">Compact, direct edits for campaigns, listings and feed-based media.</p>
+          <div class="channel__shape s-square"></div>
+        </div>
+        <div class="channel">
+          <div class="channel__ratio">21:9 / Banner</div>
+          <h3 class="channel__title">Email, decks and landing pages</h3>
+          <p class="channel__body">Lightweight cinematic cuts for investor decks, email headers, campaign pages and digital presentations.</p>
+          <div class="channel__shape s-banner"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- SECTION 7 — PRICING -->
+  <section class="section" id="pricing">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-head__meta">
+          <div class="section-head__num">06</div>
+          <span class="eyebrow">Pricing</span>
+        </div>
+        <h2 class="section-head__title display display-md">High-value video.<br><span class="text-hollow">Lower-risk production.</span></h2>
+      </div>
+
+      <div class="pricing-intro">
+        <p class="body">Setpiece gives developers access to video content that would normally require a much larger production budget.</p>
+        <p class="body">For some teams, it makes video possible for the first time. For others, it frees budget to spend on media, PR, launches or campaign reach.</p>
+      </div>
+
+      <div class="pricing">
+        <div class="price-card">
+          <div class="price-card__label">Story</div>
+          <h3 class="price-card__price">
+            <small>From</small>
+            £1,000
+          </h3>
+          <div class="price-card__body">
+            <p>A single cinematic property film built from your existing CGI, photography and campaign assets.</p>
+            <p>Ideal for smaller developers, single schemes, launch campaigns, sales suites and social content.</p>
+            <p><strong>Includes:</strong></p>
+            <ul>
+              <li>Hero film</li>
+              <li>Two channel cutdowns</li>
+              <li>Music</li>
+              <li>Edit</li>
+              <li>Motion direction</li>
+              <li>Text treatment</li>
+              <li>One round of fine-tuning</li>
+            </ul>
+            <p>Typical production: two to three days once the brief is agreed.</p>
+          </div>
+          <a href="#free-test" class="btn btn--ghost-light">Start a Story <span class="btn__arrow">→</span></a>
+        </div>
+
+        <div class="price-card price-card--feature">
+          <div class="price-card__label">Programme</div>
+          <h3 class="price-card__price">
+            <small>Pricing</small>
+            On request
+          </h3>
+          <div class="price-card__body">
+            <p>Multiple Setpieces across developments, phases or campaign periods.</p>
+            <p>Ideal for developers, agents and marketing teams who need a regular flow of premium video content without commissioning a full production each time.</p>
+            <p><strong>Useful for:</strong></p>
+            <ul>
+              <li>Development launches</li>
+              <li>Phase releases</li>
+              <li>Amenity campaigns</li>
+              <li>Investor updates</li>
+              <li>Paid social campaigns</li>
+              <li>Sales suite content</li>
+              <li>PR support</li>
+            </ul>
+            <p>Per-film cost reduces with volume.</p>
+          </div>
+          <a href="#free-test" class="btn btn--ghost-teal">Discuss a Programme <span class="btn__arrow">→</span></a>
+        </div>
+      </div>
+
+      <p class="pricing__note">
+        Already have CGI or photography? You are ready to start. Need new CGI? Image Foundry can quote that separately. Want more versions, voiceover, longer edits or paid campaign variants? We can add them.
       </p>
-      <div class="hero__ctas">
-        <a href="#free-test" class="btn btn--primary">Send us your photos <span class="btn__arrow">→</span></a>
-        <a href="#work" class="btn btn--ghost-dark">See the work <span class="btn__arrow">↓</span></a>
-      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="hero__scroll">Scroll</div>
-</header>
 
-<!-- SECTION 2 — THE SHIFT -->
-<section class="section section--soft" id="shift">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-head__meta">
-        <div class="section-head__num">01</div>
-        <span class="eyebrow">The shift</span>
+  <!-- SECTION 8 — WHY IMAGE FOUNDRY -->
+  <section class="section section--soft" id="why">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-head__meta">
+          <div class="section-head__num">07</div>
+          <span class="eyebrow">Built by Image Foundry</span>
+        </div>
+        <h2 class="section-head__title display display-md">Built by Image Foundry.<br><span class="text-hollow">Property marketing experience, applied to video.</span></h2>
       </div>
-      <h2 class="section-head__title display display-md">Static stopped working.</h2>
-    </div>
 
-    <div class="shift__grid">
-      <div>
-        <p class="body">
-          Property marketing has changed. CGI and photography that used to carry a campaign is often scrolled past in half a second. Production crews cost £15,000 to £30,000 and take weeks. Drones are weather-dependent and don't show the interiors. Library footage doesn't show your location, with your development in it. 
-        </p>
-      </div>
-      <div>
-        <p class="body">
-          Setpiece is the answer. We take the assets you already have and turn them into cinematic narrative film. The same CGI and photography that's been sitting on a hard drive, now working five times harder. 
-        </p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- SECTION 3 — THE WORK / SHOWREEL -->
-<section class="section" id="work">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-head__meta">
-        <div class="section-head__num">02</div>
-        <span class="eyebrow">The work</span>
-      </div>
-      <h2 class="section-head__title display display-md">Six setpieces. <br>Six developments.</h2>
-    </div>
-
-    <div class="reel">
-
-      <!-- Tile 1 — Urban exterior dusk (Sage Tottenham Hale) -->
-      <div class="tile tile--half">
-        <img src="./01_sage_tottenham_hale_dusk.jpg" alt="Urban apartment tower at dusk">
-        <div class="tile__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        <div class="tile__overlay"></div>
-        <div class="tile__meta">
-          <div>
-            <div class="tile__scene">Urban tower / Dusk</div>
-            <div class="tile__type">Mid-tier residential</div>
+      <div class="why">
+        <div>
+          <p class="body">Setpiece is not a generic AI video product. It is a new service from Image Foundry, built around two decades of CGI, visualisation and property marketing experience. We understand how developments need to look, how campaigns are judged, and how much perceived value matters when selling a place before it exists. Setpiece brings that experience into a faster, lighter and more accessible video production model.</p>
+          <div class="why__locations">
+            <strong style="color:var(--ink);font-weight:700;text-transform:uppercase;letter-spacing:0.08em">Manchester ·
+              London · New Delhi</strong>
           </div>
-          <div class="tile__move">Dolly Pan</div>
+        </div>
+
+        <div class="why__stats-row">
+          <div class="why__stat">
+            <div class="why__stat-num">20<span style="color:var(--teal)">+</span></div>
+            <div class="why__stat-label">Years of property CGI</div>
+          </div>
+          <div class="why__stat">
+            <div class="why__stat-num">3<span style="color:var(--teal)">×</span></div>
+            <div class="why__stat-label">Studios across two continents</div>
+          </div>
+          <div class="why__stat">
+            <div class="why__stat-num">1<span style="color:var(--teal)">k</span></div>
+            <div class="why__stat-label">Property projects delivered</div>
+          </div>
         </div>
       </div>
 
-      <!-- Tile 2 — Aerial masterplan -->
-      <div class="tile tile--half">
-        <img src="./02_hook_high_street_aerial.jpg" alt="Aerial view of a riverside development">
-        <div class="tile__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        <div class="tile__overlay"></div>
-        <div class="tile__meta">
-          <div>
-            <div class="tile__scene">Aerial masterplan</div>
-            <div class="tile__type">Mid-tier / suburban</div>
-          </div>
-          <div class="tile__move">Aerial Push</div>
+      <div class="why__clients">
+        <div class="why__clients-label">The names that trust us</div>
+        <div class="why__clients-row">
+          <img src="./logos/Vistry-logo.svg" alt="Vistry" class="client-logo">
+          <img src="./logos/Cala_Homes_Logo.svg" alt="Cala" class="client-logo">
+          <img src="./logos/Plumlife-Homes.svg" alt="Plumlife" class="client-logo">
+          <img src="./logos/hill-logo.svg" alt="The Hill Group" class="client-logo">
+          <img src="./logos/sage.svg" alt="Sage" class="client-logo">
         </div>
-      </div>
-
-      <!-- Tile 3 — Premium interior -->
-      <div class="tile tile--third">
-        <img src="./03_clippers_quay_living.jpg" alt="Open-plan living and dining with city view">
-        <div class="tile__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        <div class="tile__overlay"></div>
-        <div class="tile__meta">
-          <div>
-            <div class="tile__scene">Living room</div>
-            <div class="tile__type">Premium BTR</div>
-          </div>
-          <div class="tile__move">Slow Orbit</div>
-        </div>
-      </div>
-
-      <!-- Tile 4 — Amenity gym -->
-      <div class="tile tile--third">
-        <img src="./04_clippers_quay_gym.jpg" alt="High-rise gym amenity with city view">
-        <div class="tile__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        <div class="tile__overlay"></div>
-        <div class="tile__meta">
-          <div>
-            <div class="tile__scene">Amenity gym</div>
-            <div class="tile__type">BTR communal</div>
-          </div>
-          <div class="tile__move">Push-in</div>
-        </div>
-      </div>
-
-      <!-- Tile 5 — Street life -->
-      <div class="tile tile--third">
-        <img src="./05_parkside_triangle_street.jpg" alt="Pedestrians walking past a red-brick BTR development">
-        <div class="tile__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        <div class="tile__overlay"></div>
-        <div class="tile__meta">
-          <div>
-            <div class="tile__scene">Street life</div>
-            <div class="tile__type">BTR contextual</div>
-          </div>
-          <div class="tile__move">Tracking Pan</div>
-        </div>
-      </div>
-
-      <!-- Tile 6 — Dusk close (full width) -->
-      <div class="tile tile--wide tile--portrait">
-        <video autoplay muted loop playsinline><source src="./Dynamic Still - STW003 - Napier Gateway.mp4" type="video/mp4"></video>
-        <div class="tile__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        <div class="tile__overlay"></div>
-        <div class="tile__meta">
-          <div>
-            <div class="tile__scene">Courtyard / Dusk</div>
-            <div class="tile__type">Mixed-use / urban</div>
-          </div>
-          <div class="tile__move">Cinematic Dolly</div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-
-<!-- SECTION 4 — HOW IT WORKS -->
-<section class="section section--soft" id="how">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-head__meta">
-        <div class="section-head__num">03</div>
-        <span class="eyebrow">How it works</span>
-      </div>
-      <h2 class="section-head__title display display-md">Four steps. <br>One setpiece.</h2>
-    </div>
-
-    <div class="steps">
-      <div class="step">
-        <div class="step__num">01 / Brief</div>
-        <h3 class="step__title">You send us the assets</h3>
-        <p class="step__body">Photography, CGI, brand materials. If we made the CGI for you originally, we already have it on file.</p>
-      </div>
-      <div class="step">
-        <div class="step__num">02 / Story</div>
-        <h3 class="step__title">We agree the story</h3>
-        <p class="step__body">A 20-minute call to lock the narrative arc, the music direction and the cuts you need. You sign it off. We get to work.</p>
-      </div>
-      <div class="step">
-        <div class="step__num">03 / Build</div>
-        <h3 class="step__title">We build the setpiece</h3>
-        <p class="step__body">Two to three days of production. Cinematic camera moves, text overlays, music, atmosphere. Built around your brand.</p>
-      </div>
-      <div class="step">
-        <div class="step__num">04 / Deliver</div>
-        <h3 class="step__title">You get cinematic video</h3>
-        <p class="step__body">A hero film plus a defined set of cuts for the channels you've briefed. One round of fine-tuning included.</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
-<!-- SECTION 5 — NARRATIVE ARC -->
-<section class="section" id="arc">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-head__meta">
-        <div class="section-head__num">04</div>
-        <span class="eyebrow">The story shape</span>
-      </div>
-      <h2 class="section-head__title display display-md">Every setpiece tells a four-part story.</h2>
-    </div>
-
-    <div class="arc">
-      <div class="arc__visual">
-        <video autoplay muted loop playsinline><source src="./Dynamic Still - STW003 - Napier Gateway.mp4" type="video/mp4"></video>
+  <!-- SECTION 9 — FAQ -->
+  <section class="section" id="faq" style="padding-top:clamp(24px,3vw,40px)">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-head__meta">
+          <div class="section-head__num">08</div>
+          <span class="eyebrow">FAQ</span>
+        </div>
+        <h2 class="section-head__title display display-md">Questions worth answering.</h2>
       </div>
 
-      <div>
-        <p class="body" style="margin-bottom:40px">
-          The best property films don't just show the development. They take the viewer somewhere. Setpiece is built around a four-act arc that flexes to every brief.
-        </p>
-
-        <div class="arc__acts">
-          <div class="act">
-            <div class="act__num">Act 01</div>
-            <div>
-              <h3 class="act__title">The Place</h3>
-              <p class="act__body">The location. The neighbourhood. The lifestyle context. The viewer arrives in the world the development sits in.</p>
-            </div>
+      <div class="faq">
+        <div class="faq__item">
+          <button class="faq__q">Why video? <span class="faq__plus"></span></button>
+          <div class="faq__a">
+            <div class="faq__a-inner">Because people pay attention to it. Video works in showrooms, on websites, across social channels, in paid campaigns and in presentations. It helps a scheme feel more complete, more considered and more valuable.</div>
           </div>
-          <div class="act">
-            <div class="act__num">Act 02</div>
-            <div>
-              <h3 class="act__title">The Arrival</h3>
-              <p class="act__body">The development emerges from its surroundings. Wide shots, hero angles, the moment the building reveals itself.</p>
-            </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q">Is this only for large developers? <span class="faq__plus"></span></button>
+          <div class="faq__a">
+            <div class="faq__a-inner">No. In many ways, Setpiece is most useful for smaller and mid-sized developers because it gives them access to video content that would normally sit outside their budget.</div>
           </div>
-          <div class="act">
-            <div class="act__num">Act 03</div>
-            <div>
-              <h3 class="act__title">The Life</h3>
-              <p class="act__body">Interiors. Residents. Light, texture and atmosphere. What it actually feels like to live there.</p>
-            </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q">We do not have a big marketing team. Can we still use this? <span class="faq__plus"></span></button>
+          <div class="faq__a">
+            <div class="faq__a-inner">Yes. Setpiece is designed to be easy to commission. You do not need to write a treatment, manage a shoot or understand video production. We handle the creative, structure, edit and finish.</div>
           </div>
-          <div class="act">
-            <div class="act__num">Act 04</div>
-            <div>
-              <h3 class="act__title">The Proposition</h3>
-              <p class="act__body">The closing line. The address. The reason to find out more.</p>
-            </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q">We already spend money on video. Why use Setpiece? <span
+              class="faq__plus"></span></button>
+          <div class="faq__a">
+            <div class="faq__a-inner">Because it lets you get more video from the same budget. You can use the saving to increase campaign reach, support PR, create more social content or cover more phases of a development.</div>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q">Our budget has been reduced. Is this a replacement for traditional video? <span class="faq__plus"></span></button>
+          <div class="faq__a">
+            <div class="faq__a-inner">In some cases, yes. Setpiece gives you a polished video asset without the cost and complexity of a full production. It is especially useful when the campaign still needs video but the budget no longer supports a shoot.</div>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q">What do we need to send you? <span class="faq__plus"></span></button>
+          <div class="faq__a">
+            <div class="faq__a-inner">Four to six strong source images is enough to start. CGI, photography, brand guidelines, campaign messaging and brochure copy all help.</div>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q">Do we need to arrange a shoot? <span class="faq__plus"></span></button>
+          <div class="faq__a">
+            <div class="faq__a-inner">No. Setpiece is designed to avoid the cost, access issues and delays of traditional production.</div>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q">How long does it take? <span class="faq__plus"></span></button>
+          <div class="faq__a">
+            <div class="faq__a-inner">Most single Setpieces take two to three days of production once the brief and assets are agreed.</div>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q">Can you generate the CGI too? <span class="faq__plus"></span></button>
+          <div class="faq__a">
+            <div class="faq__a-inner">Yes, but that is a separate Image Foundry studio commission. If you need new CGI, we can quote it alongside the Setpiece.</div>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q">How is this different from using an AI video tool ourselves? <span class="faq__plus"></span></button>
+          <div class="faq__a">
+            <div class="faq__a-inner">AI can help create motion. Setpiece gives you direction, story structure, editing, music, pacing, typography, channel versions and a studio finish. The value is in the film-making, not just the tool.</div>
           </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="arc__close">
-      <h3 class="display display-sm">Story comes first. Motion follows. <br><span class="outline">That's what separates Setpiece from an AI video tool.</span></h3>
-    </div>
-  </div>
-</section>
+  <!-- SECTION 10 — FREE TEST CTA BAND -->
+  <section class="cta-band" id="free-test">
+    <div class="wrap cta-band__inner">
 
+      <div class="cta-form">
+        <div class="cta-form__intro">
+          <div class="cta-band__head">
+            <span class="eyebrow">See what your assets could become.</span>
+            <h2 class="display display-md" style="margin-top:16px"><span class="line">Send us</span><span class="line">four to six</span><span class="line">images from</span><span class="line">a live or recent</span><span class="line">development.</span></h2>
+            <p class="cta-form__heading" style="margin-top:1rem">We will show how they could be turned into a cinematic Setpiece.</p>
+            <ul class="cta-form__uses">
+              <li>Use it to test the idea.</li>
+              <li>Use it to sell the concept internally.</li>
+              <li>Use it to see how much more value is sitting in the assets you already have.</li>
+            </ul>
+          </div>
+          <ol class="cta-form__steps">
+            <li>Send your source images</li>
+            <li>We book a 20-minute call</li>
+            <li>We create a short watermarked teaser within five working days</li>
+            <li>You decide whether to commission the full film</li>
+          </ol>
 
-<!-- SECTION 6 — WHERE IT LIVES -->
-<section class="section section--soft" id="channels">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-head__meta">
-        <div class="section-head__num">05</div>
-        <span class="eyebrow">Where it lives</span>
-      </div>
-      <h2 class="section-head__title display display-md">One commission. <br>Every channel.</h2>
-    </div>
-
-    <div class="channels">
-      <div class="channel">
-        <div class="channel__ratio">9:16 / Vertical</div>
-        <h3 class="channel__title">Social Reels and feeds</h3>
-        <p class="channel__body">Vertical cuts for Instagram, TikTok and LinkedIn. Built to perform with sound or on mute, with text and motion that stops the scroll.</p>
-        <div class="channel__shape s-vertical"></div>
-      </div>
-      <div class="channel">
-        <div class="channel__ratio">16:9 / Landscape</div>
-        <h3 class="channel__title">Sales suite screens</h3>
-        <p class="channel__body">Looping hero films for showroom displays, sales centres and pitch decks.</p>
-        <div class="channel__shape s-landscape"></div>
-      </div>
-      <div class="channel">
-        <div class="channel__ratio">1:1 / Square</div>
-        <h3 class="channel__title">Portal listings</h3>
-        <p class="channel__body">Cuts sized for Rightmove, Zoopla and OnTheMarket video slots. Sized for spec, built for conversion.</p>
-        <div class="channel__shape s-square"></div>
-      </div>
-      <div class="channel">
-        <div class="channel__ratio">21:9 / Banner</div>
-        <h3 class="channel__title">Email and investor decks</h3>
-        <p class="channel__body">Short 15-second cuts that drop into newsletters, paid ads and investor presentations. Lightweight files, full impact.</p>
-        <div class="channel__shape s-banner"></div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- SECTION 7 — PRICING -->
-<section class="section" id="pricing">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-head__meta">
-        <div class="section-head__num">06</div>
-        <span class="eyebrow">Pricing</span>
-      </div>
-      <h2 class="section-head__title display display-md">Two ways to commission.</h2>
-    </div>
-
-    <div class="pricing">
-      <div class="price-card">
-        <div class="price-card__label">Story</div>
-        <h3 class="price-card__price">
-          <small>From</small>
-          £1,000
-        </h3>
-        <p class="price-card__body">
-          One narrative film. A hero cut plus two channel cuts. Two to three days of production. You supply photography and CGI.
-        </p>
-        <a href="#free-test" class="btn btn--ghost-light">Start a Story <span class="btn__arrow">→</span></a>
-      </div>
-
-      <div class="price-card price-card--feature">
-        <div class="price-card__label">Programme</div>
-        <h3 class="price-card__price">
-          <small>Pricing</small>
-          On request
-        </h3>
-        <p class="price-card__body">
-          Multiple Setpieces across phases or developments. Built as a campaign or on retainer. Per-film cost drops with volume.
-        </p>
-        <a href="#free-test" class="btn btn--ghost-teal">Discuss a Programme <span class="btn__arrow">→</span></a>
-      </div>
-    </div>
-
-    <p class="pricing__note">
-      Already have your CGI? You're ready to start. Need new CGI? Image Foundry studio handles that separately. Additional cuts, extended runs and bespoke versions priced on request.
-    </p>
-  </div>
-</section>
-
-
-<!-- SECTION 8 — WHY IMAGE FOUNDRY -->
-<section class="section section--soft" id="why">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-head__meta">
-        <div class="section-head__num">07</div>
-        <span class="eyebrow">Built by Image Foundry</span>
-      </div>
-      <h2 class="section-head__title display display-md">Twenty years of CGI for property.</h2>
-    </div>
-
-    <div class="why">
-      <div>
-        <p class="body">
-          Setpiece isn't a video startup. It's a new product from Image Foundry, the CGI studio that's been making property look its best for two decades. CGI, video, interactive and AI Labs under one roof.
-        </p>
-        <div class="why__locations">
-          <strong style="color:var(--ink);font-weight:700;text-transform:uppercase;letter-spacing:0.08em">Manchester · London · New Delhi</strong>
+          <p class="cta-form__small">Limited to four trial briefs per month. Developer email address required.</p>
         </div>
-      </div>
 
-      <div class="why__stats-row">
-        <div class="why__stat">
-          <div class="why__stat-num">20<span style="color:var(--teal)">+</span></div>
-          <div class="why__stat-label">Years of property CGI</div>
-        </div>
-        <div class="why__stat">
-          <div class="why__stat-num">3<span style="color:var(--teal)">×</span></div>
-          <div class="why__stat-label">Studios across two continents</div>
-        </div>
-        <div class="why__stat">
-          <div class="why__stat-num">1<span style="color:var(--teal)">k</span></div>
-          <div class="why__stat-label">Property projects delivered</div>
-        </div>
-      </div>
-    </div>
+        <form class="form" id="brief-form" action="submit.php" method="POST" enctype="multipart/form-data">
+          <div class="field__row">
+            <label class="field">
+              <span class="field__label">Name</span>
+              <input class="field__input" type="text" name="name" required>
+            </label>
+            <label class="field">
+              <span class="field__label">Role</span>
+              <input class="field__input" type="text" name="role" required>
+            </label>
+          </div>
 
-    <div class="why__clients">
-      <div class="why__clients-label">The names that trust us</div>
-      <div class="why__clients-row">
-        <img src="./Vistry-logo.svg" alt="Vistry" class="client-logo">
-        <img src="./Cala_Homes_Logo.svg" alt="Cala" class="client-logo">
-        <img src="./Plumlife-Homes.svg" alt="Plumlife" class="client-logo">
-        <img src="./hill-logo.svg" alt="The Hill Group" class="client-logo">
-        <img src="./sage.svg" alt="Sage" class="client-logo">
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- SECTION 9 — FAQ -->
-<section class="section" id="faq" style="padding-top:clamp(24px,3vw,40px)">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-head__meta">
-        <div class="section-head__num">08</div>
-        <span class="eyebrow">FAQ</span>
-      </div>
-      <h2 class="section-head__title display display-md">Questions worth answering.</h2>
-    </div>
-
-    <div class="faq">
-      <div class="faq__item">
-        <button class="faq__q">What if we don't have great photography? <span class="faq__plus"></span></button>
-        <div class="faq__a"><div class="faq__a-inner">It helps. Better source images make better Setpieces. If your photography is thin we can suggest what to shoot, or build the film around CGI instead. </div></div>
-      </div>
-      <div class="faq__item">
-        <button class="faq__q">Can you generate the CGI too? <span class="faq__plus"></span></button>
-        <div class="faq__a"><div class="faq__a-inner">Yes, but that's a separate Image Foundry studio commission, not part of a Setpiece. If you need new CGI we'll quote it alongside.</div></div>
-      </div>
-      <div class="faq__item">
-        <button class="faq__q">Do we own the footage? <span class="faq__plus"></span></button>
-        <div class="faq__a"><div class="faq__a-inner">Yes. Full commercial rights on delivery. Use it anywhere, indefinitely.</div></div>
-      </div>
-      <div class="faq__item">
-        <button class="faq__q">Can we have voiceover instead of music? <span class="faq__plus"></span></button>
-        <div class="faq__a"><div class="faq__a-inner">Yes. Music is the default because it travels better on social. Voiceover, captions, mixed approaches: all in scope.</div></div>
-      </div>
-      <div class="faq__item">
-        <button class="faq__q">What if the first cut isn't right? <span class="faq__plus"></span></button>
-        <div class="faq__a"><div class="faq__a-inner">Most briefs land first time because the story is locked before we start. Further changes or additional cuts are quoted separately.</div></div>
-      </div>
-      <div class="faq__item">
-        <button class="faq__q">Which channels does it work on? <span class="faq__plus"></span></button>
-        <div class="faq__a"><div class="faq__a-inner">All of them. The cuts you need are agreed at brief and delivered in the right aspect ratios.</div></div>
-      </div>
-      <div class="faq__item">
-        <button class="faq__q">How is this different from AI video tools we've seen? <span class="faq__plus"></span></button>
-        <div class="faq__a"><div class="faq__a-inner">AI is part of how we make it, not the whole product. You get craft direction, narrative shape, music selection and a studio finish. Tools give you motion. Setpiece gives you a film.</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 10 — FREE TEST CTA BAND -->
-<section class="cta-band" id="free-test">
-  <div class="wrap cta-band__inner">
-
-    <div class="cta-form">
-      <div class="cta-form__intro">
-        <div class="cta-band__head">
-          <span class="eyebrow">Try it on your project</span>
-          <h2 class="display display-md" style="margin-top:16px">
-            <span class="line">Send us your</span>
-            <span class="line">images.</span>
-            <span class="line">We'll show</span>
-            <span class="line">you what</span>
-            <span class="line">Setpiece</span>
-            <span class="line">does.</span>
-          </h2>
-        </div>
-        <ol class="cta-form__steps">
-          <li>Send four to six source images via the form</li>
-          <li>We book a 20-minute call to brief the cut</li>
-          <li>We deliver a watermarked teaser in five working days</li>
-          <li>Yours to share internally. Not for publication.</li>
-        </ol>
-
-        <p class="cta-form__small">Limited to four briefs a month. Developer email address required.</p>
-      </div>
-
-      <form class="form" onsubmit="event.preventDefault(); alert('Thanks. We&apos;ll be in touch within one working day.');">
-<div class="field__row">
           <label class="field">
-            <span class="field__label">Name</span>
-            <input class="field__input" type="text" name="name" required>
+            <span class="field__label">Company</span>
+            <input class="field__input" type="text" name="company" required>
           </label>
+
           <label class="field">
-            <span class="field__label">Role</span>
-            <input class="field__input" type="text" name="role" required>
+            <span class="field__label">Developer email</span>
+            <input class="field__input" type="email" name="email" required>
           </label>
+
+          <label class="field">
+            <span class="field__label">Project name</span>
+            <input class="field__input" type="text" name="project" required>
+          </label>
+
+          <label class="field">
+            <span class="field__label">Upload your images (4-6)</span>
+            <div class="field__upload" onclick="this.querySelector('input').click()">
+              <input type="file" name="images[]" multiple accept="image/*,.tif,.tiff" style="display:none">
+              <p class="field__upload-text">
+                <strong>Drop files here or click to browse</strong>
+                JPEG, PNG, TIFF up to 50MB each
+              </p>
+            </div>
+          </label>
+
+          <p class="form__msg" id="form-msg" style="display:none"></p>
+
+          <button type="submit" class="btn btn--primary form__submit">Send my brief <span
+              class="btn__arrow">→</span></button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot__top">
+        <div>
+          <div class="foot__brand"><a href="https://www.imagefoundry.co.uk" target="_blank" rel="noopener"><img
+                src="./logos/logo.svg" alt="Image Foundry"></a></div>
+          <p class="foot__tag">Cinematic film for property. Built from the assets you already own.</p>
         </div>
-
-        <label class="field">
-          <span class="field__label">Company</span>
-          <input class="field__input" type="text" name="company" required>
-        </label>
-
-        <label class="field">
-          <span class="field__label">Developer email</span>
-          <input class="field__input" type="email" name="email" required>
-        </label>
-
-        <label class="field">
-          <span class="field__label">Project name</span>
-          <input class="field__input" type="text" name="project" required>
-        </label>
-
-        <label class="field">
-          <span class="field__label">Upload your images (4-6)</span>
-          <div class="field__upload" onclick="this.querySelector('input').click()">
-            <input type="file" multiple accept="image/*" style="display:none">
-            <p class="field__upload-text">
-              <strong>Drop files here or click to browse</strong>
-              JPEG, PNG, TIFF up to 50MB each
-            </p>
-          </div>
-        </label>
-
-        <button type="submit" class="btn btn--primary form__submit">Send my brief <span class="btn__arrow">→</span></button>
-      </form>
-    </div>
-
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="foot">
-  <div class="wrap">
-    <div class="foot__top">
-      <div>
-        <div class="foot__brand">SETPIECE <span>by Image Foundry</span></div>
-        <p class="foot__tag">Cinematic film for property. Built from the assets you already own.</p>
+        <div class="foot__cta-row">
+          <a href="#free-test" class="btn btn--primary">Send us your images <span class="btn__arrow">→</span></a>
+          <a href="https://www.imagefoundry.co.uk" class="btn btn--ghost-dark">Visit Image Foundry <span
+              class="btn__arrow">↗</span></a>
+        </div>
       </div>
-      <div class="foot__cta-row">
-        <a href="#free-test" class="btn btn--primary">Send us your photos <span class="btn__arrow">→</span></a>
-        <a href="https://www.imagefoundry.co.uk" class="btn btn--ghost-dark">Visit Image Foundry <span class="btn__arrow">↗</span></a>
+
+      <div class="foot__bottom">
+        <div>© 2026 Image Foundry. All rights reserved.</div>
+        <div class="foot__links">
+          <a href="https://www.imagefoundry.co.uk/about-us/">About</a>
+          <a href="https://www.imagefoundry.co.uk/case-studies/">Case studies</a>
+          <a href="https://www.imagefoundry.co.uk/privacy-policy/">Privacy</a>
+          <a href="https://www.instagram.com/imagefoundrystudios/">Instagram</a>
+          <a href="https://www.linkedin.com/company/image-foundry-studios/">LinkedIn</a>
+        </div>
       </div>
     </div>
-
-    <div class="foot__bottom">
-      <div>© 2026 Image Foundry. All rights reserved.</div>
-      <div class="foot__links">
-        <a href="https://www.imagefoundry.co.uk/about-us/">About</a>
-        <a href="https://www.imagefoundry.co.uk/case-studies/">Case studies</a>
-        <a href="https://www.imagefoundry.co.uk/privacy-policy/">Privacy</a>
-        <a href="https://www.instagram.com/imagefoundrystudios/">Instagram</a>
-        <a href="https://www.linkedin.com/company/image-foundry-studios/">LinkedIn</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-  // FAQ accordion
-  document.querySelectorAll('.faq__q').forEach(btn => {
-    btn.addEventListener('click', () => {
-      btn.parentElement.classList.toggle('open');
-    });
-  });
-
-  // Reveal on scroll
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('in');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.section-head, .tile, .step, .channel, .price-card, .act, .why__stat').forEach(el => {
-    el.classList.add('reveal');
-    io.observe(el);
-  });
-
-  // File upload feedback
-  document.querySelectorAll('.field__upload input').forEach(input => {
-    input.addEventListener('change', (e) => {
-      const n = e.target.files.length;
-      const txt = e.target.closest('.field__upload').querySelector('.field__upload-text');
-      txt.innerHTML = '<strong>' + n + ' file' + (n===1?'':'s') + ' selected</strong>Ready to send';
-    });
-  });
-
-  document.querySelectorAll('.tile video').forEach(v => {
-    v.addEventListener('ended', () => { v.currentTime = 0; v.play(); });
-  });
-</script>
-
+  </footer>
+  <script src="script.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,291 @@
+=======================================================
+IMAGE FOUNDRY — COMPLETE BRAND GUIDELINES
+=======================================================
+
+BRAND STATEMENT
+---------------
+Our new brand shows strength, simplicity, and form. Its versatility works across
+print, digital and animation. Our look is architectural, distinctive and agile.
+We are future proof, confident and bold.
+
+=======================================================
+1. LOGO
+=======================================================
+
+LOGO MARQUE — SOLID
+- Primary logo (the "F" shaped marque)
+- Use standard or reversed as first version of logo to introduce the brand
+- Works equally well in any of the three brand colours
+
+LOGO MARQUE — REVERSED
+- Logo reversed white out of each of the three brand colours:
+  IF Pink, IF Blue, IF Yellow
+
+LOGO MARQUE — MONO APPLICATION
+- Only for specific mono applications: black and white animation/video
+- Also for print limitations: photocopying, fax, black & white printers
+- Use full colour logos in all other instances
+
+LOGO MARQUE — WIREFRAME
+- Used to support the solid marque
+- Suitable as a regular logo or graphic device
+- May appear in any of the three brand colours on a pale background
+
+LOGO MARQUE — WIREFRAME REVERSE
+- Wireframe marque reversed white out of any of the three brand colours
+
+LOGO CLEAR SPACE
+- Always maintain a 'safe area' of clear space around the logo
+- Clear space = width of the vertical section of the marque (referred to as 'X')
+
+LOGOTYPE — COLOUR
+- May be used alone or with the solid logo marque for greater clarity
+
+LOGOTYPE — REVERSE
+- Reversed white out of any of the three brand colours
+
+LOGOTYPE — MONO APPLICATION
+- Only for black & white animation/video or limited print (photocopying, fax, B&W printers)
+- Use full colour logos in all other instances
+
+LOGOTYPE CLEAR SPACE
+- Always maintain a 'safe area' equal to the height of the letters on all sides
+
+WATERMARK
+- The IF watermark pattern (repeating diamond/marque pattern) can be overlaid over imagery
+
+=======================================================
+2. COLOUR
+=======================================================
+
+PRIMARY PALETTE
+---------------
+
+IF PRIMARY PINK
+  PMS:  Pantone 234c
+  CMYK: C32 M100 Y19 K11
+  RGB:  R166 G0 B100
+  HEX:  #a60064
+
+IF PRIMARY BLUE
+  PMS:  Pantone 315c
+  CMYK: C100 M34 Y34 K21
+  RGB:  R0 G102 B128
+  HEX:  #006680
+
+IF PRIMARY YELLOW
+  PMS:  Pantone 124c
+  CMYK: C7 M36 Y100 K1
+  RGB:  R236 G170 B0
+  HEX:  #ecaa00
+
+SECONDARY ACCENT PALETTE
+-------------------------
+(Supports primary palette with brighter accent shades)
+
+IF SECONDARY PINK
+  PMS:  Pantone 219c
+  CMYK: C5 M96 Y0 K0
+  RGB:  R224 G23 B131
+  HEX:  #e01783
+
+IF SECONDARY BLUE
+  PMS:  Pantone 3125c
+  CMYK: C91 M0 Y23 K0
+  RGB:  R0 G164 B195
+  HEX:  #00a4c3
+
+IF SECONDARY YELLOW
+  PMS:  Pantone 116c
+  CMYK: C0 M19 Y95 K0
+  RGB:  R255 G206 B0
+  HEX:  #ffce00
+
+COLOUR RATIO
+- Use primary colour at 90%, secondary accent at no more than 10%
+- Secondary colours should ONLY be used alongside their associated primary hue
+  (e.g. Secondary Pink only with Primary Pink, not mixed across groups)
+
+COLOUR COMBINATIONS
+- Combinations should be restrained to ensure results are graphic, bold and legible
+- Approved combinations: Pink on white, Blue on white, Yellow on white
+- Text can be placed over solid colour backgrounds using reversed (white) type
+
+=======================================================
+3. TYPEFACE
+=======================================================
+
+PRIMARY TYPEFACE: BARLOW CONDENSED
+Google Fonts: fonts.google.com/specimen/Barlow+Condensed
+
+USE FOR HEADLINES & STATEMENTS:
+- Always UPPERCASE (capitalised for maximum impact)
+- Modern, grotesk-style typeface — bold, robust
+- Available weights: Bold, Medium, Regular
+
+HEADLINE TRACKING:
+- Apply +100 letter-spacing/tracking to all headlines
+- This complements the logotype and allows letters to breathe
+- Example: "IMAGE FOUNDRY" with wide letter spacing
+
+BODY TEXT:
+- Barlow Condensed in sentence case (not all caps)
+- Use Regular, Medium, or Bold weights only
+- Do NOT use italic or other weights
+
+=======================================================
+4. APPLICATION
+=======================================================
+
+WEBSITE HOMEPAGE
+- Solid logo marque used in header (top left)
+- Navigation: IMAGE | MOTION | INTERACTIVE | [phone number]
+- Hero: Full-bleed photography with centered headline text overlay
+- Headline example: "FIND YOUR SPARK"
+- Subheading: "Computer generated imagery and animation putting reality into the virtual"
+- CTA Button: "VIEW" (outlined/bordered button style)
+- Background: Full-bleed cinematic photography
+
+WEBSITE PORTFOLIO
+- Grid layout: 3-column image grid
+- One grid cell replaced with a brand colour tile (yellow) featuring bold headline
+- Headline example: "IMAGES THAT SPEAK VOLUMES"
+- Subheading under headline in regular weight
+
+WEBSITE SERVICES PAGE
+- Back arrow navigation
+- Large bold headline (left-aligned): "MOTION THAT INFORMS, INCITES AND INSPIRES"
+- Body text (right column): smaller regular weight text
+- Filter tabs: SHOW ALL | PRODUCT | ARCHITECTURAL | MEDIA
+  (Active tab highlighted in brand yellow/colour)
+- Portfolio grid below filter tabs
+
+BUSINESS CARDS
+- Front: Logotype + contact details
+- Reverse: Large solid logo marque on brand colour background
+- Available in all three brand colours (Pink, Blue, Yellow)
+- Contact details format:
+  [Name]
+  [Title]
+  [email]
+  [phone / mobile]
+  [address]
+  [website]
+
+LETTERHEAD (A4)
+- Bold IF primary coloured reverse side
+- Branded elements in corresponding colours on front
+- Footer on front: Manchester | London | New Delhi
+  [email] | [phone] | [address] | [website]
+  Company No. | VAT No.
+
+CONTINUATION SHEET
+- Logo matching first page
+- No reverse printing or address details
+
+COMPLIMENT SLIP
+- Bold IF primary coloured reverse
+- Branded elements in corresponding colours on front
+- Footer: Manchester | London | New Delhi + contact details
+
+BROCHURE COVER (A5)
+- Both solid logo marque AND logotype featured (for clarity of IF name)
+- Brand colour background
+
+BROCHURE SPREADS
+- Clean typography, modern feel
+- Photography takes visual precedence
+- Section heading style: bold ALL CAPS with +100 tracking
+- Subheadings in bold condensed
+- Body text in regular weight sentence case
+
+WELCOME PACK (Cover)
+- Both solid logo marque and logotype
+- Bold headline: "IMAGE FOUNDRY WELCOME"
+- Interior: Bold and bright with wireframe logo used as graphic device
+- Full bleed colour dividing pages
+- White text on colour background for section dividers
+
+WELCOME PACK (Interior — Services List)
+- Full bleed brand colour dividing page with section number
+- Clean, ordered list layout
+- Services include:
+  CGI: House Type, Apartment, Street Scenes, Aerial, Birds Eye Views,
+       2D & 3D Master Plan, 2D & 3D Floor Plans, Photo Montage,
+       Photo-Montages Verified View
+  ANIMATION: Fly Through Animations, Product Animations, Creative Animation,
+             Dynamic Stills, 360° Stills
+  VIRTUAL REALITY: Site Exteriors, Interiors, 360° Take Home Tours,
+                   Augmented Reality Property Apps
+  PRODUCT SHOTS: Lifestyle, Cut Out and PAC, Interior Property & Room Set CGI
+  DIGITAL: Online Product Selectors
+
+EMAIL FOOTER
+- Logo marque + logotype side by side
+- Name in bold, job title in brand colour
+- Optional: personal photo/illustration
+- Details: offices (Manchester, London, New Delhi), phone, address, website
+
+OFFICE GRAPHICS
+- Large splashes of brand colour against neutral/white walls
+- Inspiring typographic statements
+- Example statement: "CREATING THE NEXT GENERATION OF DIGITAL IMAGERY"
+- Wireframe logo used as decorative graphic device
+
+=======================================================
+COMPANY DETAILS
+=======================================================
+
+Brand Name:    IMAGE FOUNDRY
+Website:       imagefoundry.co.uk
+Email:         hello@loveimagefoundry.com
+Phone:         +44 (0)161 302 1580
+Mobile:        07970 620453
+Address:       Old School House, Thirsk Street, Manchester M12 6PN
+Offices:       Manchester | London | New Delhi
+Company No.:   05288501
+VAT No.:       GB 854 5319 13
+
+=======================================================
+QUICK REFERENCE — CSS VARIABLES FOR WEB
+=======================================================
+
+:root {
+  /* Primary Colours */
+  --if-pink:    #a60064;
+  --if-blue:    #006680;
+  --if-yellow:  #ecaa00;
+
+  /* Secondary Accent Colours */
+  --if-pink-accent:   #e01783;
+  --if-blue-accent:   #00a4c3;
+  --if-yellow-accent: #ffce00;
+
+  /* Typography */
+  --font-primary: 'Barlow Condensed', sans-serif;
+
+  /* Tracking for headlines */
+  /* letter-spacing: 0.1em; (equivalent to +100 tracking) */
+}
+
+/* Headline style */
+.headline {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; /* Bold */
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Body text style */
+.body-text {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 400; /* Regular */
+  text-transform: none; /* Sentence case */
+}
+
+/* Google Fonts import */
+/* @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;700&display=swap'); */
+
+=======================================================
+END OF BRAND GUIDELINES
+=======================================================
