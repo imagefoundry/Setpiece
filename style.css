@@ -60,7 +60,7 @@ button {
 }
 
 .display-xl {
-  font-size: 100px
+  font-size: clamp(44px, 12vw, 100px)
 }
 
 .display-lg {
