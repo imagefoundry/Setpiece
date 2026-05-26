@@ -1,4 +1,3 @@
-
 // FAQ accordion
 document.querySelectorAll('.faq__q').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -77,7 +76,7 @@ if (briefForm) {
     msg.style.display = 'none';
 
     try {
-      const res = await fetch('submit.php', { method: 'POST', body: new FormData(briefForm) });
+      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(briefForm) });
       const data = await res.json();
       if (data.success) {
         briefForm.reset();

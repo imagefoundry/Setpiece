@@ -561,7 +561,11 @@
           <p class="cta-form__small">Limited to four trial briefs per month. Developer email address required.</p>
         </div>
 
-        <form class="form" id="brief-form" action="submit.php" method="POST" enctype="multipart/form-data">
+  <form class="form" id="brief-form" action="brief-handler.php" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="access_key" value="232a78b6-5cd8-49f0-81e9-729298e1d4f5">
+          <input type="hidden" name="subject" value="Setpiece brief submission">
+          <input type="hidden" name="from_name" value="Setpiece">
+          <input type="hidden" name="redirect" value="false">
           <div class="field__row">
             <label class="field">
               <span class="field__label">Name</span>
