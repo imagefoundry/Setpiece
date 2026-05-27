@@ -594,13 +594,13 @@
 
           <label class="field">
             <span class="field__label">Upload your images (4-6)</span>
-            <div class="field__upload" onclick="this.querySelector('input').click()">
-              <input type="file" name="images[]" multiple accept="image/*,.tif,.tiff" style="display:none" onclick="event.stopPropagation()">
+            <label class="field__upload">
+              <input type="file" name="images[]" multiple accept="image/*,.tif,.tiff" style="display:none">
               <p class="field__upload-text">
                 <strong>Drop files here or click to browse</strong>
                 JPEG, PNG, TIFF up to 50MB each
               </p>
-            </div>
+            </label>
           </label>
 
           <p class="form__msg" id="form-msg" style="display:none"></p>
