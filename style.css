@@ -1527,6 +1527,7 @@ button {
 }
 
 .field__upload {
+  display: block;
   border: 1.5px dashed var(--rule);
   padding: 24px;
   text-align: center;
