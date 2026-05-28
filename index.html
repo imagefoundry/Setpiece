@@ -10,11 +10,10 @@
     content="Setpiece turns your photography and CGI into narrative video. Built by Image Foundry. Cinematic film for property developers. From £1,000.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
   <!-- NAV -->
@@ -105,7 +104,7 @@
         <!-- Row 1: Two 16:9 landscape videos -->
         <div class="tile-wrap tile-wrap--half">
           <div class="tile tile--half" style="aspect-ratio:16/9">
-            <video autoplay muted loop playsinline><source src="./videos/10.mp4" type="video/mp4"></video>
+            <video autoplay muted loop playsinline preload="none"><source src="./videos/10.mp4" type="video/mp4"></video>
             <div class="tile__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></div>
             <div class="tile__overlay"></div>
             <div class="tile__meta">
@@ -118,7 +117,7 @@
 
         <div class="tile-wrap tile-wrap--half">
           <div class="tile tile--half" style="aspect-ratio:16/9">
-            <video autoplay muted loop playsinline><source src="./videos/3.mp4" type="video/mp4"></video>
+            <video autoplay muted loop playsinline preload="none"><source src="./videos/3.mp4" type="video/mp4"></video>
             <div class="tile__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></div>
             <div class="tile__overlay"></div>
             <div class="tile__meta">
@@ -132,7 +131,7 @@
         <!-- Row 2: Two 1:1 square videos -->
         <div class="tile-wrap tile-wrap--half">
           <div class="tile tile--half" style="aspect-ratio:1/1">
-            <video autoplay muted loop playsinline><source src="./videos/5.mp4" type="video/mp4"></video>
+            <video autoplay muted loop playsinline preload="none"><source src="./videos/5.mp4" type="video/mp4"></video>
             <div class="tile__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></div>
             <div class="tile__overlay"></div>
             <div class="tile__meta">
@@ -145,7 +144,7 @@
 
         <div class="tile-wrap tile-wrap--half">
           <div class="tile tile--half" style="aspect-ratio:1/1">
-            <video autoplay muted loop playsinline><source src="./videos/2.mp4" type="video/mp4"></video>
+            <video autoplay muted loop playsinline preload="none"><source src="./videos/2.mp4" type="video/mp4"></video>
             <div class="tile__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></div>
             <div class="tile__overlay"></div>
             <div class="tile__meta">
@@ -159,7 +158,7 @@
         <!-- Row 3: 9:16 portrait + 4:3 landscape -->
         <div class="tile-wrap tile-wrap--third">
           <div class="tile tile--third" style="aspect-ratio:2/3">
-            <video autoplay muted loop playsinline style="object-position:center"><source src="./videos/4.mp4" type="video/mp4"></video>
+            <video autoplay muted loop playsinline preload="none" style="object-position:center"><source src="./videos/4.mp4" type="video/mp4"></video>
             <div class="tile__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></div>
             <div class="tile__overlay"></div>
             <div class="tile__meta">
@@ -172,7 +171,7 @@
 
         <div class="tile-wrap tile-wrap--two-thirds">
           <div class="tile tile--two-thirds" style="aspect-ratio:4/3">
-            <video autoplay muted loop playsinline><source src="./videos/1.mp4" type="video/mp4"></video>
+            <video autoplay muted loop playsinline preload="none"><source src="./videos/1.mp4" type="video/mp4"></video>
             <div class="tile__play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg></div>
             <div class="tile__overlay"></div>
             <div class="tile__meta">
@@ -266,7 +265,7 @@
 
       <div class="arc">
         <div class="arc__visual">
-          <video autoplay muted loop playsinline>
+          <video autoplay muted loop playsinline preload="none">
             <source src="./videos/Dynamic Still - STW003 - Napier Gateway.mp4" type="video/mp4">
           </video>
         </div>
@@ -561,11 +560,7 @@
           <p class="cta-form__small">Limited to four trial briefs per month. Developer email address required.</p>
         </div>
 
-  <form class="form" id="brief-form" action="brief-handler.php" method="POST" enctype="multipart/form-data">
-          <input type="hidden" name="access_key" value="232a78b6-5cd8-49f0-81e9-729298e1d4f5">
-          <input type="hidden" name="subject" value="Setpiece brief submission">
-          <input type="hidden" name="from_name" value="Setpiece">
-          <input type="hidden" name="redirect" value="false">
+<form class="form" id="brief-form" action="submit.php" method="POST" enctype="multipart/form-data">
           <div class="field__row">
             <label class="field">
               <span class="field__label">Name</span>
