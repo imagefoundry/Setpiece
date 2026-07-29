@@ -32,6 +32,24 @@ document.querySelectorAll('.tile video').forEach(v => {
   v.addEventListener('ended', () => { v.currentTime = 0; v.play(); });
 });
 
+// Lazy-load reel/arc videos only once they're near the viewport
+const lazyVideoIO = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const video = e.target;
+      video.querySelectorAll('source[data-src]').forEach(source => {
+        source.src = source.dataset.src;
+        source.removeAttribute('data-src');
+      });
+      video.load();
+      video.autoplay = true;
+      video.play().catch(() => {});
+      lazyVideoIO.unobserve(video);
+    }
+  });
+}, { rootMargin: '200px' });
+document.querySelectorAll('video.lazy-video').forEach(v => lazyVideoIO.observe(v));
+
 // Video modal
 const modal = document.createElement('div');
 modal.id = 'video-modal';
@@ -60,7 +78,10 @@ document.querySelectorAll('.tile__play').forEach(btn => {
   btn.addEventListener('click', () => {
     const tile = btn.closest('.tile');
     const video = tile.querySelector('video');
-    if (video) openModal(video.currentSrc || video.querySelector('source').src);
+    if (video) {
+      const source = video.querySelector('source');
+      openModal(video.currentSrc || source.src || source.dataset.src);
+    }
   });
 });
 
