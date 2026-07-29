@@ -13,7 +13,8 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="style.css">
-  <link rel="preload" href="./videos/Hero-sage.mp4" as="video" type="video/mp4">
+  <link rel="preload" href="./videos/Hero-sage-mobile.mp4" as="video" type="video/mp4" media="(max-width: 767px)">
+  <link rel="preload" href="./videos/Hero-sage.mp4" as="video" type="video/mp4" media="(min-width: 768px)">
 <!-- Google Tag Manager (production only) -->
 <script>
 (function(w,d,s,l,i){
@@ -45,6 +46,7 @@
   <header class="hero">
     <div class="hero__bg">
       <video autoplay muted loop playsinline preload="auto" fetchpriority="high">
+        <source src="./videos/Hero-sage-mobile.mp4" type="video/mp4" media="(max-width: 767px)">
         <source src="./videos/Hero-sage.mp4" type="video/mp4">
       </video>
     </div>
